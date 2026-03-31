@@ -89,7 +89,7 @@ Sustav je uspješno testiran slanjem POST zahtjeva na produkcijski endpoint API 
 
 API Gateway uspješno prosljeđuje zahtjev u privatnu mrežu.
 
-Lambda funkcija dohvaća Stripe API ključ iz Secrets Managera, simulira naplatu i vraća status 200 OK.
+Lambda funkcija  vraća status 200 OK.
 
 Zapis je uspješno kreiran u DynamoDB tablici.
 
