@@ -29,7 +29,7 @@ class API,Lambda,NAT,VPCE,DB,SM aws;
 ```
 
 
-Proces Implementacije (Dokumentiran Snimkama Zaslona)
+Proces Implementacije (dokumentiran snimkama zaslona)
 Ovaj repozitorij služi kao dokaz praktičnog razumijevanja AWS infrastrukture i sigurnosnih principa po principu najmanje privilegije (Least Privilege).
 
 1. Konfiguracija VPC-a i Mrežna Izolacija
@@ -53,7 +53,7 @@ Private Subnet (10.0.2.0/24): Ovdje je smještena Lambda funkcija. Izlazni prome
 ![vpc](images/private-subnet.png)
 
 
-2. Sigurna Pohrana Podataka i Optimizacija Troškova
+2. Sigurna pohrana podataka i optimizacija troškova
 Za pohranu narudžbi korištena je DynamoDB tablica. Kako bi se osiguralo da promet ne izlazi na javni internet i kako bi se smanjili troškovi prijenosa podataka kroz NAT Gateway, implementiran je VPC Gateway Endpoint za DynamoDB.
 
 
@@ -63,7 +63,7 @@ Za pohranu narudžbi korištena je DynamoDB tablica. Kako bi se osiguralo da pro
 ![Ažurirana Private Route Tablica](images/dynmodb-route-private-rt.png)
 
 
-3. Poslovna Logika u Privatnom Okruženju (Lambda)
+3. Poslovna Logika u Privatnom okruženju (Lambda)
 Lambda funkcija (Python) prima zahtjeve od API Gatewaya.
 
 Dodijeljena joj je IAM uloga s AWSLambdaVPCAccessExecutionRole dozvolom za kreiranje ENI-ja u privatnom subnetu, te dozvolom za pisanje u bazu.
@@ -83,6 +83,8 @@ Korištena je Lambda Proxy Integration za prosljeđivanje kompletnog HTTP zahtje
 ![vpc](images/api-gateway-lambda.png)
 
 Rezultati Testiranja
+
+
 Sustav je uspješno testiran slanjem POST zahtjeva na produkcijski endpoint API Gatewaya.
 
 API Gateway uspješno prosljeđuje zahtjev u privatnu mrežu.
