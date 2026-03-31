@@ -59,3 +59,48 @@ Za pohranu narudžbi korištena je DynamoDB tablica. Kako bi se osiguralo da pro
 
 
 ![Ažurirana Private Route Tablica](images/dynmodb-route-private-rt.png)
+
+
+3. Poslovna Logika u Privatnom Okruženju (Lambda)
+Lambda funkcija (Python) prima zahtjeve od API Gatewaya.
+
+Dodijeljena joj je IAM uloga s AWSLambdaVPCAccessExecutionRole dozvolom za kreiranje ENI-ja u privatnom subnetu, te dozvolom za pisanje u bazu.
+
+Smještena je isključivo u privatni subnet.
+
+![vpc](images/lambda-role.png)
+
+![vpc](images/lambda-private-subnet.png)
+
+
+4. Javno Sučelje (API Gateway)
+Kreiran je REST API (/narudzba POST metoda) koji služi kao ulazna točka za klijente.
+
+Korištena je Lambda Proxy Integration za prosljeđivanje kompletnog HTTP zahtjeva privatnoj Lambda funkciji.
+
+![vpc](images/api-gateway-lambda.png)
+
+Rezultati Testiranja
+Sustav je uspješno testiran slanjem POST zahtjeva na produkcijski endpoint API Gatewaya.
+
+API Gateway uspješno prosljeđuje zahtjev u privatnu mrežu.
+
+Lambda funkcija dohvaća Stripe API ključ iz Secrets Managera, simulira naplatu i vraća status 200 OK.
+
+Zapis je uspješno kreiran u DynamoDB tablici.
+
+![vpc](images/test-narudzbe.png)
+
+
+![vpc](images/dynamodb-new-entry.png)
+
+
+
+
+
+
+
+
+
+
+
