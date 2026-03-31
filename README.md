@@ -33,6 +33,8 @@ Proces Implementacije (Dokumentiran Snimkama Zaslona)
 Ovaj repozitorij služi kao dokaz praktičnog razumijevanja AWS infrastrukture i sigurnosnih principa po principu najmanje privilegije (Least Privilege).
 
 1. Konfiguracija VPC-a i Mrežna Izolacija
+
+   
 Započelo se s kreiranjem prilagođenog VPC-a (10.0.0.0/16) s dva subneta:
 
 Public Subnet (10.0.1.0/24): Sadrži NAT Gateway i ima rutu prema Internet Gatewayu (IGW).
