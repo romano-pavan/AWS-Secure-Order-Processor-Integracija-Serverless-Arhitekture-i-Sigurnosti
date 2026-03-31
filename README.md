@@ -54,8 +54,8 @@ Private Subnet (10.0.2.0/24): Ovdje je smještena Lambda funkcija. Izlazni prome
 2. Sigurna Pohrana Podataka i Optimizacija Troškova
 Za pohranu narudžbi korištena je DynamoDB tablica. Kako bi se osiguralo da promet ne izlazi na javni internet i kako bi se smanjili troškovi prijenosa podataka kroz NAT Gateway, implementiran je VPC Gateway Endpoint za DynamoDB.
 
-Ovdje zalijepite snimku zaslona VPC Endpointa:
+
 ![VPC Endpoint](images/endpoint-vpc.png)
 
-Ovdje zalijepite snimku zaslona privatne Route tablice s novom Prefix List rutom za DynamoDB:
+
 ![Ažurirana Private Route Tablica](images/dynmodb-route-private-rt.png)
