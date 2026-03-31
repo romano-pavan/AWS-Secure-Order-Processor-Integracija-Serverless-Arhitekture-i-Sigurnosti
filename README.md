@@ -27,3 +27,17 @@ VPCE -->|6. Siguran upis| DB[(DynamoDB)]
 classDef aws fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:black;
 class API,Lambda,NAT,VPCE,DB,SM aws;
 ```
+
+
+Proces Implementacije (Dokumentiran Snimkama Zaslona)
+Ovaj repozitorij služi kao dokaz praktičnog razumijevanja AWS infrastrukture i sigurnosnih principa po principu najmanje privilegije (Least Privilege).
+
+1. Konfiguracija VPC-a i Mrežna Izolacija
+Započelo se s kreiranjem prilagođenog VPC-a (10.0.0.0/16) s dva subneta:
+
+Public Subnet (10.0.1.0/24): Sadrži NAT Gateway i ima rutu prema Internet Gatewayu (IGW).
+
+Private Subnet (10.0.2.0/24): Ovdje je smještena Lambda funkcija. Izlazni promet usmjeren je prema NAT Gatewayu.
+
+
+
