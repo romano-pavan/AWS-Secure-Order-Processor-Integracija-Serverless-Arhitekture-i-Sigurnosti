@@ -38,3 +38,13 @@ Započelo se s kreiranjem prilagođenog VPC-a (10.0.0.0/16) s dva subneta:
 Public Subnet (10.0.1.0/24): Sadrži NAT Gateway i ima rutu prema Internet Gatewayu (IGW).
 
 Private Subnet (10.0.2.0/24): Ovdje je smještena Lambda funkcija. Izlazni promet usmjeren je prema NAT Gatewayu.
+
+![vpc](images/vpc-kreranje.jpg)
+
+
+![vpc](images/public-subnet.png)
+
+
+![vpc](images/private-subnet.png)
+
+
